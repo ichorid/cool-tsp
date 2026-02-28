@@ -1,0 +1,15 @@
+.git
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.mypy_cache
+*.egg-info
+dist
+build
+.env
+.env.*
+*.md
+.github
+tests
+.pre-commit-config.yaml
