@@ -1,0 +1,13 @@
+---
+description: Use repo tooling (uv, ruff, mypy, pytest, pre-commit) per pyproject.toml
+globs:
+alwaysApply: true
+---
+
+# cool-tsp tooling
+
+- **Run commands via uv:** `uv run pytest`, `uv run ruff check .`, `uv run ruff format .`, `uv run mypy src`. No global pip/poetry.
+- **Ruff:** Line length 90, double quotes. Lint `src` + `tests` + `bench`; tests/bench ignore ARG and S101.
+- **Mypy:** Strict, target 3.14; run on `src` only.
+- **Tests:** `tests/` and `bench/`, with `src` on PYTHONPATH; asyncio tests use `asyncio_mode = auto`. For coverage: `uv run pytest --cov=src --cov-report=term-missing`.
+- **Pre-commit:** Ruff (with `--fix`) and mypy; keep code passing `pre-commit run --all-files`.

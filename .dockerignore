@@ -10,6 +10,7 @@ build
 .env
 .env.*
 *.md
+!README.md
 .github
 tests
 .pre-commit-config.yaml

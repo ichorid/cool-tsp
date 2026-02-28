@@ -7,6 +7,8 @@ Or with pytest: uv run pytest bench/ -v -s
 import time
 from pathlib import Path
 
+import pytest
+
 from mytsp import NaiveSolver, load_solomon
 from mytsp.models import TSPInstance, TSPSolution
 
@@ -16,7 +18,10 @@ C101_PATH = BENCH_DIR / "c101.txt"
 
 
 def run() -> tuple[TSPInstance, TSPSolution, float]:
-    """Load c101, solve with NaiveSolver, print stats. Returns (instance, solution, elapsed_s)."""
+    """Load c101, solve with NaiveSolver, print stats.
+
+    Returns (instance, solution, elapsed_s).
+    """
     instance = load_solomon(C101_PATH)
     solver = NaiveSolver()
     t0 = time.perf_counter()
@@ -29,6 +34,7 @@ def run() -> tuple[TSPInstance, TSPSolution, float]:
     return instance, solution, elapsed
 
 
+@pytest.mark.bench
 def test_perf_bench_c101_load_and_solve() -> None:
     """Pytest entrypoint: run benchmark and assert valid solution."""
     instance, solution, elapsed = run()
