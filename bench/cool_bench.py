@@ -45,13 +45,7 @@ def run() -> tuple[CoolTspSolution, float]:
 @pytest.mark.bench
 def test_cool_bench_load_and_solve() -> None:
     """Load CoolTsp from c101, run CoolSolver, assert valid delivery solution."""
-    problem = load_cool_bench(C101_PATH, seed=COOL_BENCH_SEED)
-
     solution, elapsed = run()
-    # Delivery load fits capacity; pickup adds demand so total can exceed capacity
-    delivery_demand = sum(
-        n.demand for n in solution.nodes if n.node_type != NodeType.PICKUP
-    )
     assert elapsed < 30.0, f"solve took {elapsed:.2f}s"
 
 

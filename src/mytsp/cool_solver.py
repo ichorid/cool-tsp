@@ -164,9 +164,7 @@ def _select_best_pickup(
     best: PickupCandidate | None = None
     for idx, pickup in enumerate(pickups):
         accelerator = _build_detour_accelerator(pickup, route_nodes)
-        candidate = _find_best_insertion(
-            pickup, idx, accelerator, load_profile, capacity
-        )
+        candidate = _find_best_insertion(pickup, idx, accelerator, load_profile, capacity)
         if candidate is not None and (best is None or candidate.delta < best.delta):
             best = candidate
     return best
