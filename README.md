@@ -1,3 +1,6 @@
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ichorid/cool-tsp)
+
 # cool-tsp
 
 Travelling Salesman Problem (TSP) library and FastAPI microservice. Exercise repo demonstrating modern Python tooling (uv, Python 3.14, ruff, mypy) and deployment (Docker, GitHub Actions).
